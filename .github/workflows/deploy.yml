@@ -34,7 +34,3 @@ jobs:
       - name: Push image to registry
         run: |
           docker push "$IMAGE_NAME"
-
-      - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no root@203.0.113.45 "docker pull $IMAGE_NAME && docker restart service-a"
