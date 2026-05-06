@@ -1,6 +1,6 @@
 # FIXES.md
 
-Document every issue you find and fix in this file.
+Documented every issue and fix I found in this file.
 
 ---
 
@@ -118,8 +118,12 @@ Document every issue you find and fix in this file.
 - Updated `k8s/deployment.yaml` to include `livenessProbe`, `readinessProbe`, `imagePullPolicy: IfNotPresent`, and resource limits.
 - These changes make the Kubernetes manifest more robust and ready for real deployments.
 
-### Validation
+---
+
+### Validation of running services and the connectivity between them 
 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/04136853-df1c-4b31-b56d-8cdfac8543cc" />
+<img width="1919" height="141" alt="Screenshot 2026-05-06 172533" src="https://github.com/user-attachments/assets/2a06ad96-6af3-43eb-94be-0ddc66f62687" />
+
 
 
