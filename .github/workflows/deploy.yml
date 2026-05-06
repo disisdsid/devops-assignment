@@ -14,9 +14,9 @@ jobs:
       - name: Build and push
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-          docker build -t myorg/devops-app:latest ./service-a
-          docker push myorg/devops-app:latest
+          docker build -t disisdsid/devops-assignment:latest ./service-a
+          docker push disisdsid/devops-assignment:latest
 
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no root@203.0.113.45 "docker pull myorg/devops-app:latest && docker restart service-a"
+          ssh -o StrictHostKeyChecking=no root@203.0.113.45 "docker pull disisdsid/devops-assignment:latest && docker restart service-a"
