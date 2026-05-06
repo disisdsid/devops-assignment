@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: service-a
-        image: myorg/devops-app:latest
+        image: disisdsid/devops-assignment:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
