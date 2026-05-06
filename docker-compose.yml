@@ -1,0 +1,16 @@
+services:
+  service-a:
+    build: ./service-a
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.example
+    restart: unless-stopped
+
+  service-b:
+    build: ./service-b
+    depends_on:
+      - service-a
+    env_file:
+      - .env.example
+    restart: unless-stopped
