@@ -34,3 +34,19 @@ jobs:
       - name: Push image to registry
         run: |
           docker push "$IMAGE_NAME"
+
+      - name: Validate SSH deploy key
+        run: |
+          if [ -z "${{ secrets.SSH_PRIVATE_KEY }}" ]; then
+            echo "SSH_PRIVATE_KEY must be set in repository secrets."
+            exit 1
+          fi
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@203.0.113.45 "docker pull \"$IMAGE_NAME\" && docker restart service-a"
